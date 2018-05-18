@@ -1,0 +1,492 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+    
+    <entry>
+      <title><![CDATA[京东+携程Java开发岗面经]]></title>
+      <url>/2018/05/18/%E4%BA%AC%E4%B8%9C-%E6%90%BA%E7%A8%8BJava%E5%BC%80%E5%8F%91%E5%B2%97%E4%BD%8D%E9%9D%A2%E7%BB%8F/</url>
+      <content type="html"><![CDATA[<h2 id="京东-携程Java开发岗位面经"><a href="#京东-携程Java开发岗位面经" class="headerlink" title="京东+携程Java开发岗位面经"></a>京东+携程Java开发岗位面经</h2><p>京东和携程一样都是总共三轮面试，两轮技术面，一轮HR面。<br><a id="more"></a><br>也有段时间了，可能记得不是太清楚，写下能想起来的吧，希望对大家有帮助。</p>
+<h3 id="京东一二三面"><a href="#京东一二三面" class="headerlink" title="京东一二三面"></a>京东一二三面</h3><p>一面（技术面）：</p>
+<ul>
+<li>自我介绍</li>
+<li>final三种作用</li>
+<li>Java集合类有哪些</li>
+<li>Map实现类有哪些</li>
+<li>介绍下HashMap放入元素的具体过程，内部做了什么操作</li>
+<li>多线程了解过吧？说说synchronized volatile区别</li>
+<li>Spring介绍一下，它的优势是什么？为什么大家都在用？</li>
+<li>JVM堆内存分代介绍一下</li>
+<li>简单SQL题，如何判断是否有重复记录？</li>
+<li>Mysql的一个什么索引，忘了，没听过，没答上</li>
+<li>项目相关问题，架构，RESTful对用户肖像刻画的影响</li>
+<li>有啥要问我的吗？</li>
+</ul>
+<p>一面居然一点也没考察算法，有点吃惊。</p>
+<p>二面（技术面）：</p>
+<ul>
+<li>自我介绍</li>
+<li>剩下的全部围绕项目问，包括架构考虑，实现细节，团队是怎么协作的，权限控制怎么设计的，加密方案，怎么做缓存和session的同步？</li>
+<li>给业务情景说解决方案</li>
+<li>其他瞎扯淡的事儿</li>
+<li>你有什么要问我的吗？</li>
+<li>三面（HR面）</li>
+<li>三面是HR面，京东的HR不谈薪资，主要聊了下大学的经历，学习开发的过程，如果给你一支团队，你要怎么决策这些。</li>
+<li>然后聊了下入职时间，实习时间等。实习时间最好说长一点。</li>
+<li>总的来说京东的问题一面广泛考察，但都比较基础，二面抓住项目深挖，考察的是实际实现需求，解决问题的能力。京东的笔试真的是做的怀疑人生，面试温柔多了。<h2 id="携程一面三面"><a href="#携程一面三面" class="headerlink" title="携程一面三面"></a>携程一面三面</h2></li>
+</ul>
+<p>一面（技术面）：</p>
+<ul>
+<li>主要是围绕项目疯狂怼,主要是登录加密,权限设计,微信登录api,集群方案,架构设计思路。每个展开详细说，打破砂锅问到底那种，比京东的二面问的详细。</li>
+<li>数据库ACID和隔离级别,给纸笔手写不可重复读的例子。</li>
+<li>数组实现个队列,要求不能出现伪满，手写队列为空和满时的判断条件,算是数据结构的题,在面试官提示下写出来了</li>
+<li>一面面试官全程不是很友好，应该是碰到传说种的压力面了。</li>
+</ul>
+<p>二面：</p>
+<p>面试官说长得帅的可以跳过二面，所以我就屁颠屁颠去HR面了</p>
+<p>三面（HR）</p>
+<ul>
+<li>聊聊实习时间,聊聊薪资,工作地点啥的</li>
+<li>算法、JVM、多线程都是自学的吗？</li>
+<li>你有别的offer吗，你觉得你主要短板在哪里？</li>
+</ul>
+<p>携程的话，感觉明显面试比京东要难，节奏更快，效率也更高，考核的话比京东更注重基础一点，但也很重视实际的开发能力和解决问题的能力。</p>
+]]></content>
+      
+        <categories>
+            
+            <category> 面经 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Java </tag>
+            
+            <tag> 面经 </tag>
+            
+            <tag> 京东 </tag>
+            
+            <tag> 携程 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[关于协程的思考]]></title>
+      <url>/2018/02/24/%E5%85%B3%E4%BA%8E%E5%8D%8F%E7%A8%8B%E7%9A%84%E6%80%9D%E8%80%83/</url>
+      <content type="html"><![CDATA[<h3 id="什么是协程"><a href="#什么是协程" class="headerlink" title="什么是协程"></a>什么是协程</h3><p>昨天第一次接触这个概念，朋友说python的协程好难理解，所以研究了下什么是协程。<br>从Java程序员的视角可以理解为由用户代码自行控制的多线程切换。真正的线程的切换是需要由操作系统来进行控制的，而这会带来性能的开销，并且由于抢占式执行的特性，往往多线程需要手动加上各种锁来确保逻辑的执行顺序。<br>协程的优势网上的资料大多是针对线程来说的比如：</p>
+<p>1.省去了cpu线程切换的开销;<br>2.降低了内存消耗;<br>3.提高了cpu缓存命中率;<br>4.整体上提高了性能；<br>5.不提高硬件的前提下，提升了系统的负载能力。</p>
+<a id="more"></a>
+<h3 id="为什么协程是密集io的解决方案"><a href="#为什么协程是密集io的解决方案" class="headerlink" title="为什么协程是密集io的解决方案"></a>为什么协程是密集io的解决方案</h3><p>这一点想了很久都不明白，协程不还是要乖乖地等着io执行完吗？<br>解决高密集io的一个传统方法是采用回调函数的写法，spring mvc为例，线程A接收到用户请求后交给另一个线程B去处理，线程A回归线程池，等待下一次请求进来，而线程B处理完io等操作后调用回调函数把数据返回给用户。或者在别的一些语言里，回调也是在一个线程里执行的，由解释器来控制调度。<br>另一个解决方案是协程，io会阻塞线程，而线程太多会因为系统的物理性能达到瓶颈，那把线程用占用资源更低的协程代替的话，自然负载能力就上去了。</p>
+<h3 id="协程对比主动的函数调用优势"><a href="#协程对比主动的函数调用优势" class="headerlink" title="协程对比主动的函数调用优势"></a>协程对比主动的函数调用优势</h3><p><a href="https://www.liaoxuefeng.com/wiki/001374738125095c955c1e6d8bb493182103fac9270762a000/0013868328689835ecd883d910145dfa8227b539725e5ed000" target="_blank" rel="noopener">参考廖雪峰老师的例子</a><br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> time</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">consumer</span><span class="params">()</span>:</span></div><div class="line">    r = <span class="string">''</span></div><div class="line">    <span class="keyword">while</span> <span class="keyword">True</span>:</div><div class="line">        n = <span class="keyword">yield</span> r</div><div class="line">        <span class="keyword">if</span> <span class="keyword">not</span> n:</div><div class="line">            <span class="keyword">return</span></div><div class="line">        print(<span class="string">'[CONSUMER] Consuming %s...'</span> % n)</div><div class="line">        time.sleep(<span class="number">1</span>)</div><div class="line">        r = <span class="string">'200 OK'</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">produce</span><span class="params">(c)</span>:</span></div><div class="line">    c.next()</div><div class="line">    n = <span class="number">0</span></div><div class="line">    <span class="keyword">while</span> n &lt; <span class="number">5</span>:</div><div class="line">        n = n + <span class="number">1</span></div><div class="line">        print(<span class="string">'[PRODUCER] Producing %s...'</span> % n)</div><div class="line">        r = c.send(n)</div><div class="line">        print(<span class="string">'[PRODUCER] Consumer return: %s'</span> % r)</div><div class="line">    c.close()</div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__==<span class="string">'__main__'</span>:</div><div class="line">    c = consumer()</div><div class="line">    produce(c)</div></pre></td></tr></table></figure></p>
+<p>如果改成<code>r=c.send()</code>改为直接调用<code>consumer()</code>,<code>consumer()</code>也改为直接返回值不也一样能运行吗？<br>参阅资料并思考后发现，如果<code>consumer()</code>中一开始有段初始化的逻辑，且恰好这段逻辑是个大io，那协程的写法这个状态是保存下来的，而函数调用则需要每次初始化一遍，性能的差别就很巨大了。</p>
+]]></content>
+      
+        
+        <tags>
+            
+            <tag> Java </tag>
+            
+            <tag> Python </tag>
+            
+            <tag> 线程 </tag>
+            
+            <tag> 协程 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[JVM的结束条件]]></title>
+      <url>/2018/02/14/JVM%E7%9A%84%E7%BB%93%E6%9D%9F%E6%9D%A1%E4%BB%B6/</url>
+      <content type="html"><![CDATA[<p>思考一个问题：如果主函数开启了一个线程，那主函数运行结束，程序会继续运行吗？</p>
+<a id="more"></a>
+<h3 id="实验代码"><a href="#实验代码" class="headerlink" title="实验代码"></a>实验代码</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        Runnable runnable = () -&gt; &#123;</div><div class="line">            System.out.println(<span class="string">"子线程开始"</span>);</div><div class="line">            <span class="keyword">try</span> &#123;</div><div class="line">                Thread.sleep(<span class="number">2000</span>);</div><div class="line">            &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</div><div class="line">                e.printStackTrace();</div><div class="line">            &#125;</div><div class="line">            System.out.println(<span class="string">"子线程结束"</span>);</div><div class="line">        &#125;;</div><div class="line">        Thread thread = <span class="keyword">new</span> Thread(runnable);</div><div class="line">        thread.start();</div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            Thread.sleep(<span class="number">1000</span>);</div><div class="line">        &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125;</div><div class="line">        System.out.println(<span class="string">"main end"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="运行结果"><a href="#运行结果" class="headerlink" title="运行结果"></a>运行结果</h4><p>程序输出为</p>
+<ul>
+<li>子线程开始</li>
+<li>main end</li>
+<li>子线程结束</li>
+</ul>
+<p>所以可以得出结论，主函数运行完成后，程序并没有退出，而是等待我们新开的线程运行完后才结束。<br>那么主函数运行完后主函数所在的线程还存在吗？在子线程里加上断点，可以看到main所在的线程已经消失了。但实验发现子线程的休眠时间如果设置的短一点，则main线程还在，推测是还没来得及销毁就被因为断点暂停了。</p>
+<h3 id="如果子线程是守护线程呢？"><a href="#如果子线程是守护线程呢？" class="headerlink" title="如果子线程是守护线程呢？"></a>如果子线程是守护线程呢？</h3><p>我们加上一句<code>thread.setDaemon(true);</code></p>
+<h4 id="运行结果-1"><a href="#运行结果-1" class="headerlink" title="运行结果"></a>运行结果</h4><ul>
+<li>子线程开始</li>
+<li>main end</li>
+</ul>
+<p>可以看到JVM直接在main执行完后就退出了。查阅资料，JVM的退出条件是当前存活线程都为守护线程是退出，而main是一个特殊的非守护线程。</p>
+]]></content>
+      
+        <categories>
+            
+            <category> 学习笔记 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> JVM </tag>
+            
+            <tag> Java </tag>
+            
+            <tag> 多线程 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[利用Java反射生成随机不重复主键算法]]></title>
+      <url>/2017/09/24/%E6%90%AD%E9%85%8D%E9%80%9A%E7%94%A8Mapper3%E7%94%9F%E6%88%90%E9%9A%8F%E6%9C%BA%E4%B8%8D%E9%87%8D%E5%A4%8D%E4%B8%BB%E9%94%AE%E7%AE%97%E6%B3%95/</url>
+      <content type="html"><![CDATA[<p>为了练习使用java的反射，写了这个算法，使用<a href="https://github.com/abel533" target="_blank" rel="noopener">@abel533</a>提供的通用<a href="https://github.com/abel533/Mapper" target="_blank" rel="noopener">Mapper3</a>的同学可以参考此文档<br><a id="more"></a></p>
+<h3 id="具体实现"><a href="#具体实现" class="headerlink" title="具体实现"></a>具体实现</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RandomUtils</span> </span>&#123;</div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 获取指定位数的的string随机数，随机范围为a-z A-Z 0-9</div><div class="line">     *</div><div class="line">     * <span class="doctag">@param</span> length string的长度</div><div class="line">     * <span class="doctag">@return</span> 指定lenght的随机字符串</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">randomString</span><span class="params">(<span class="keyword">int</span> length)</span> </span>&#123;</div><div class="line">        String str = <span class="string">"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"</span>;</div><div class="line">        Random random = <span class="keyword">new</span> Random();</div><div class="line">        StringBuffer buf = <span class="keyword">new</span> StringBuffer();</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; length; i++) &#123;</div><div class="line">            <span class="keyword">int</span> num = random.nextInt(<span class="number">62</span>);</div><div class="line">            buf.append(str.charAt(num));</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> buf.toString();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 获取随机长度为12的字符串作为<span class="doctag">@Id</span>标注的不重复主键</div><div class="line">     *</div><div class="line">     * <span class="doctag">@param</span> clazz</div><div class="line">     * <span class="doctag">@return</span></div><div class="line">     * <span class="doctag">@throws</span> Exception</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getRandomPrimaryKey</span><span class="params">(Class&lt;?&gt; clazz)</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line">        String clazzName = clazz.getSimpleName();</div><div class="line">        Object record = clazz.newInstance();</div><div class="line">        Mapper&lt;Object&gt; mapper = SpringContextUtil.getBean(clazzName.substring(<span class="number">0</span>, <span class="number">1</span>).toLowerCase() + clazzName.substring(<span class="number">1</span>) + <span class="string">"Mapper"</span>);<span class="comment">//从spring中获取到找到实体类对应的Mapper</span></div><div class="line">        String primaryKey = <span class="keyword">null</span>;</div><div class="line">        <span class="keyword">for</span> (Field field : clazz.getDeclaredFields()) &#123;</div><div class="line">            Id annotation = field.getAnnotation(Id.class);<span class="comment">//此处的Id是javax.persistence.Id;此方法根据实体字段的@Id注解判断主键，可以用别的方式代替（比如作为参数传入主键）</span></div><div class="line">            <span class="keyword">if</span> (annotation != <span class="keyword">null</span>) &#123;</div><div class="line">                primaryKey = field.getName();</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        String randomString = RandomUtils.randomString(<span class="number">12</span>);<span class="comment">//这里的12是随机主键的长度，可以自定义修改</span></div><div class="line">        <span class="keyword">if</span> (primaryKey != <span class="keyword">null</span>) &#123;</div><div class="line">            clazz.getMethod(<span class="string">"set"</span> + primaryKey.substring(<span class="number">0</span>, <span class="number">1</span>).toUpperCase() + primaryKey.substring(<span class="number">1</span>), String.class).invoke(record, randomString);<span class="comment">//主键的set方法</span></div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> Exception(<span class="string">"未找到@Id注解的字段"</span>);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> (mapper.selectCount(record) &gt; <span class="number">0</span>) &#123;</div><div class="line">            <span class="keyword">return</span> <span class="keyword">this</span>.getRandomPrimaryKey(clazz);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> randomString;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+]]></content>
+      
+        <categories>
+            
+            <category> 技术日志 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 通用Mapper3 </tag>
+            
+            <tag> 反射 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[汉诺塔算法的JAVA实现]]></title>
+      <url>/2017/09/24/%E6%B1%89%E7%BD%97%E5%A1%94%E7%AE%97%E6%B3%95%E7%9A%84JAVA%E5%AE%9E%E7%8E%B0/</url>
+      <content type="html"><![CDATA[<p>主要是运用了递归的思想，将问题分拆成3步</p>
+<ol>
+<li>将1至n-1的盘子借助三号塔移动到二号塔</li>
+<li>将n移动到三号塔</li>
+<li>将1至n-1的盘子移动到三号塔</li>
+</ol>
+<a id="more"></a>
+<h3 id="具体实现"><a href="#具体实现" class="headerlink" title="具体实现"></a>具体实现</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</div><div class="line">    <span class="keyword">static</span> <span class="keyword">int</span> i=<span class="number">0</span>;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line"></div><div class="line">        hanoi(<span class="number">20</span>,<span class="string">"一号塔"</span>,<span class="string">"二号塔"</span>,<span class="string">"三号塔"</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">hanoi</span><span class="params">(<span class="keyword">int</span> n, String s, String m, String e)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (n==<span class="number">1</span>)&#123;</div><div class="line">            move(s,<span class="number">1</span>,e);</div><div class="line">        &#125;<span class="keyword">else</span> &#123;</div><div class="line">            hanoi(n-<span class="number">1</span>,s,e,m);</div><div class="line">            move(s, n, e);</div><div class="line">            hanoi(n-<span class="number">1</span>,m,s,e);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">move</span><span class="params">(String s, <span class="keyword">int</span> n, String e)</span></span>&#123;</div><div class="line">        i++;</div><div class="line">        System.out.println(<span class="string">"将编号为"</span>+n+<span class="string">"的盘子，从"</span>+s+<span class="string">"移动到"</span>+e+<span class="string">"移动了"</span>+i+<span class="string">"次"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
+      
+        <categories>
+            
+            <category> 学习笔记 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 算法 </tag>
+            
+            <tag> 汉诺塔 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Java导出Excel不生成临时文件解决方案]]></title>
+      <url>/2017/07/31/Java%E5%AF%BC%E5%87%BAExcel%E4%B8%8D%E7%94%9F%E6%88%90%E4%B8%B4%E6%97%B6%E6%96%87%E4%BB%B6%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</url>
+      <content type="html"><![CDATA[<h2 id="使用POI创建表格"><a href="#使用POI创建表格" class="headerlink" title="使用POI创建表格"></a>使用POI创建表格</h2><p>POI是Apache提供的用于解析MS Office文档的工具类库，关于POI的使用本文不详细说明。<br>项目新增加导出excel表格的需求，百度后发现很多解决方案都是采用POI生成临时文件到本地，然后返回生成的文件给前端，甚至还有返回新的url或者重定向的。私以为不够优雅，不够高效。<br><a id="more"></a></p>
+<h2 id="采用byte-直接返回文件"><a href="#采用byte-直接返回文件" class="headerlink" title="采用byte[]直接返回文件"></a>采用<code>byte[]</code>直接返回文件</h2><p>既然下载文件时是给前端直接返回的<code>byte[]</code>，那我们后端是不是也能直接把<code>XSSFWorkbook</code>对象转换为<code>byte[]</code>来直接返回呢？<br><code>XSSFWorkbook</code>输入文件时是调用的<code>write(OutputStream stream)</code>方法将当前excel文件写入到一个输出流里面,那我们尝试实例化一个<code>ByteArrayOutputStream</code>，然后写入它试试。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">XSSFWorkbook sheets=<span class="keyword">new</span> XSSFWorkbook();</div><div class="line">ByteArrayOutputStream out = <span class="keyword">new</span> ByteArrayOutputStream();</div><div class="line">sheets.write(out);</div></pre></td></tr></table></figure></p>
+<p>接着把这个输出流转换成<code>byte[]</code><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">byte</span>[] output=out.toByteArray();</div><div class="line">out.close();</div></pre></td></tr></table></figure></p>
+<p>注意这里一定要关闭掉输出流，否则会照成内存泄露。<br>然后直接返回得到的<code>byte[]</code>即可，一测试，顺利通过。关于文件下载不具体说明。<br>需要的话可以参考<a href="https://cumtfc.github.io/2017/07/27/Angular%E5%A4%9A%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/">Angular多文件上传</a></p>
+]]></content>
+      
+        <categories>
+            
+            <category> 技术日志 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> SpringMVC </tag>
+            
+            <tag> Java </tag>
+            
+            <tag> POI </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[WSL中利用Nginx部署Angular]]></title>
+      <url>/2017/07/30/WSL%E4%B8%AD%E5%88%A9%E7%94%A8Nginx%E9%83%A8%E7%BD%B2Angular/</url>
+      <content type="html"><![CDATA[<h2 id="Win10中启用WSL"><a href="#Win10中启用WSL" class="headerlink" title="Win10中启用WSL"></a>Win10中启用WSL</h2><p>WSL是微软和Canonical合作为开发人员提供的一个运行在win10环境下的一个Linux子系统，由微软编写核心代码，并由Canonical提供软件包的支持。<br>要想使用WSL很简单，在“启用或关闭Windows功能”中找到“适用于Linux的Windows子系统（Bate）”，打开它，然后按照提示在系统设置里打开开发者模式即会自动安装完成。<br>重启后打开CMD或者Windows Shell，输入bash，按照提示操作，接下来的换源，下载常用软件等不赘述。<br><a id="more"></a></p>
+<h2 id="WSL中安装Nginx"><a href="#WSL中安装Nginx" class="headerlink" title="WSL中安装Nginx"></a>WSL中安装Nginx</h2><p>本质上和在Ubuntu中进行安装并没有差别，命令如下<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install nginx</div></pre></td></tr></table></figure></p>
+<p>等待安装完成后输入以下命令验证安装<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo service nginx status</div></pre></td></tr></table></figure></p>
+<p>只要能找到service，无论是否在运行就说明安装成功了，如果没有运行的话，可能是别的容器占用了80端口导致nginx启动失败。需要注意的是WSL不像虚拟机存在一个单独的环境，它的所以端口都是和win10共用。<br>如果服务没有运行，则关闭占用端口的程序后输入以下命令启动服务，打开浏览器输入<code>localhost</code>即可看到nginx的欢迎页面<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo service nginx start</div></pre></td></tr></table></figure></p>
+<h2 id="配置nginx部署Angular"><a href="#配置nginx部署Angular" class="headerlink" title="配置nginx部署Angular"></a>配置nginx部署Angular</h2><p>接下来把编译后的Angular应用复制到子系统中，物理机的磁盘被默认挂载在子系统的<code>/mnt</code>目录下，假设我们编译后的文件放在<code>D:\dist</code>,那么复制命令如下<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">sudo cp /mnt/d/dist /var/www -r</div><div class="line"><span class="built_in">cd</span> /var/www</div><div class="line">ls</div></pre></td></tr></table></figure></p>
+<p>后两条命令是为了检查是否复制成功<br>接下来开始配置nginx,默认网站配置文件在<code>/etc/mginx/sites-enabled/default</code>,如果不在的话可以先找到nginx.conf,然后查看配置文件位置，或者直接在http配置里面写配置也是可以的<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo vim /etc/mginx/sites-enabled/default</div></pre></td></tr></table></figure></p>
+<p>上面命令打开的是欢迎页的配置文件，把root替换成自己的网站路径，404页面配置成首页，保存后重载nginx即可在浏览器里看到效果<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo service reload</div></pre></td></tr></table></figure></p>
+<h2 id="配置nginx反向代理"><a href="#配置nginx反向代理" class="headerlink" title="配置nginx反向代理"></a>配置nginx反向代理</h2><p>nginx的反向代理功能可以说是非常有名了，很多公司选择nginx专门提供反向代理和负载均衡服务，而且和在IIS中部署一样，我们需要将我们的数据请求反向代理带后端的数据接口<br>完整配置文件如下<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">server &#123;</div><div class="line">	listen 80 default_server;</div><div class="line">	listen [::]:80 default_server;</div><div class="line"></div><div class="line">	root /var/www/dist;</div><div class="line"></div><div class="line">	# Add index.php to the list if you are using PHP</div><div class="line">	index index.html index.htm index.nginx-debian.html;</div><div class="line">    # 反向代理配置，代理数据请求到数据接口</div><div class="line">	server_name _;</div><div class="line">	  location /api/ &#123;</div><div class="line">        	  proxy_pass http://localhost:8090;</div><div class="line">	          proxy_set_header Host               $host;</div><div class="line">        	  proxy_set_header X-Real-IP          $remote_addr;</div><div class="line">        	  proxy_set_header X-Forwarded-For    $proxy_add_x_forwarded_for;</div><div class="line">        	  proxy_set_header X-Forwarded-Proto  $scheme;</div><div class="line"> 	 &#125;</div><div class="line">    # 404配置，刷新页面时跳转首页</div><div class="line">	location / &#123;</div><div class="line">		# First attempt to serve request as file, then</div><div class="line">		# as directory, then fall back to displaying a 404.</div><div class="line">		try_files $uri /index.html =404;</div><div class="line">	&#125;</div></pre></td></tr></table></figure></p>
+<p>配置完成后重载nginx即可<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo service reload</div></pre></td></tr></table></figure></p>
+<p>至此，WSL中部署Angular折腾完成。</p>
+]]></content>
+      
+        <categories>
+            
+            <category> 技术日志 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Angular </tag>
+            
+            <tag> Nginx </tag>
+            
+            <tag> WSL </tag>
+            
+            <tag> Ubuntu </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[IIS部署Angular+反向代理]]></title>
+      <url>/2017/07/30/IIS%E9%83%A8%E7%BD%B2Angular-%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/</url>
+      <content type="html"><![CDATA[<h1 id="IIS部署Angular及配置反向代理"><a href="#IIS部署Angular及配置反向代理" class="headerlink" title="IIS部署Angular及配置反向代理"></a>IIS部署Angular及配置反向代理</h1><p>为了实现前后端分离并且能灵活切换数据接口的地址，通常在前端不会写绝对的请求地址而是按一定格式。比如统一在请求地址以<code>api/</code>开头，后面跟上二级地址及各种参数。然后通过反向代理来将所有URL带有<code>api/</code>的请求反向代理到数据接口的地址。<br>Angular编译后得到静态文件可以直接部署到IIS,Nginx, Apache等web容器中，然后用户即可直接访问。<br><a id="more"></a></p>
+<h2 id="IIS中部署Angular"><a href="#IIS中部署Angular" class="headerlink" title="IIS中部署Angular"></a>IIS中部署Angular</h2><p>IIS是微软作为windows功能提供的Web容器，只需要在<code>控制面板→程序→打开或关闭Windows功能</code>找到Internet Information Services，然后选择需要的功能保存后IIS即会自动安装。<br>安装完成后打开浏览器访问localhost即可看到欢迎页。<br>打开IIS控制台，选中默认的网站，停掉它，然后选择添加网站，物理路径指向Angular编译后的文件目录，端口设置为80保存后重启容器，再访问localhost即可看到自己的网站主页。</p>
+<h2 id="IIS配置反向代理"><a href="#IIS配置反向代理" class="headerlink" title="IIS配置反向代理"></a>IIS配置反向代理</h2><p>要使用反向代理，必须先安装<a href="http://www.iis.net/downloads/microsoft/application-request-routing" target="_blank" rel="noopener">ARR（Application Request Routing）</a><br>然后打开ARR,点击右侧边栏的proxy，打上Enable proxy前的√。<br>关于IIS的反向代理，搜索引擎得到的解决方案有很多坑。比如基本建议选择空白规则自己配置，使用正则匹配字符串等。因为我不会正则，所以采用通配符匹配，结果也是多次配置无果。<br>尝试添加规则的时候直接选择反向代理，然后用通配符进行匹配因为我们需要代理的只是对数据接口的请求，所以匹配<code>*api*</code>，匹配条件不填，重写规则写上自己数据接口的地址比如<code>http://localhost:8080｛R2｝</code><br>这里的｛R2｝是匹配到的api后的字符串，比如请求<code>localhost：8080/api/login</code>，匹配到的{R2}就是<code>/login</code>具体可以在配置匹配规则时点测试模式然后贴上自己的请求url查看。<br>配置好后重启网站即可看到效果，如果不能正常访问则可以F12查看Angular应用发出的请求链接，并且复制到IIS 的 URL重写规则配置里点测试，粘贴请求链接，检查实际重写后的地址是否正确。</p>
+<h2 id="为什么不把前后端都部署在一起？"><a href="#为什么不把前后端都部署在一起？" class="headerlink" title="为什么不把前后端都部署在一起？"></a>为什么不把前后端都部署在一起？</h2><p>原因很简单，如果部署到同一个容器同一个地址的话会造成各种不可预期的错误，比如</p>
+<ul>
+<li>spring mvc会拦截到前端的路由跳转</li>
+<li>静态资源要单独映射</li>
+<li>不方便分别进行调试和维护</li>
+<li>etc.</li>
+</ul>
+<p>PS：IIS部署好后可能会出现比如明明网站都已经更新甚至本地目录都删除了，浏览器访问内容却没变，这可能是浏览器的缓存的缘故，可以禁用掉缓存再进行测试，如何浏览器渲染旧的内容待解决。</p>
+]]></content>
+      
+        <categories>
+            
+            <category> 技术日志 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Angular </tag>
+            
+            <tag> IIS </tag>
+            
+            <tag> 反向代理 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Angular多文件上传]]></title>
+      <url>/2017/07/27/Angular%E5%A4%9A%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/</url>
+      <content type="html"><![CDATA[<p>不同于传统JSP应用直接可以使用<code>&lt;input type=&quot;file&quot;/&gt;</code>进行文件上传，在Angular中表单一般是绑定到后台的一个对象上，然后通过AJAX对服务器发起异步请求，那么如何在Angular中实现文件上传呢？</p>
+<h1 id="前端实现"><a href="#前端实现" class="headerlink" title="前端实现"></a>前端实现</h1><p>此处我们使用<a href="https://www.primefaces.org/primeng/#/fileupload" target="_blank" rel="noopener">primeNG</a>提供的文件上传组件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;p-fileUpload #fileUpload name=&quot;file&quot; mode=&quot;basic&quot; chooseLabel=&quot;上传附件&quot;[multiple]=&quot;true&quot; </div><div class="line">                  [auto]=&quot;true&quot; customUpload=&quot;true&quot; (uploadHandler)=&quot;myUploader($event)&quot;&gt;&lt;/p-fileUpload&gt;</div></pre></td></tr></table></figure></p>
+<p>但是除了文件本身外，我们还需要提交一些额外的JSON数据给服务器进行处理，所以将<code>customUpload</code>属性设为<code>true</code>，然后自定义自己的上传逻辑。<br><a id="more"></a><br><figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//上传的具体实现方法</span></div><div class="line">myUploader(event)&#123;</div><div class="line">   <span class="comment">//new 一个FormData对象来保持我们的提交信息</span></div><div class="line">   <span class="keyword">let</span> formDate: FormData = <span class="keyword">new</span> FormData();</div><div class="line">   event.files.forEach(<span class="function"><span class="params">file</span> =&gt;</span> &#123;</div><div class="line">   formDate.append(<span class="string">'file'</span>, file);</div><div class="line">   &#125;);</div><div class="line">   <span class="comment">//加上其它需要传到后端的信息，采用JSON编码</span></div><div class="line">   formDate.append(<span class="string">'yourInformation'</span>, <span class="built_in">JSON</span>.stringify(yourInformation));</div><div class="line">   <span class="comment">//调用http服务上传文件</span></div><div class="line">   <span class="keyword">this</span>.yourHttpService.Upload(formDate).subscribe(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</div><div class="line">      <span class="built_in">console</span>.log(res);</div><div class="line">   &#125;, <span class="function"><span class="params">error</span> =&gt;</span> &#123;</div><div class="line">      <span class="built_in">console</span>.log(error)</div><div class="line">   &#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>此处不要手动指定Content-Type，angular会自动指定类型为multipart/form-data，并且生成随机字符串来分隔不同的文件与json</p>
+<h1 id="后端实现"><a href="#后端实现" class="headerlink" title="后端实现"></a>后端实现</h1><p>后端采用spring mvc来处理请求，注意前端传过来的JSON信息无法直接解析（可能是我的处理方式不对），所以作为字符串类型接受，文件由于我们采用了多文件上传，所以接受的参数类型是`MultipartFile[]``</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@RequestMapping</span>(value = <span class="string">""</span>, method = RequestMethod.POST)</div><div class="line">    <span class="function"><span class="keyword">public</span> ResponseEntity <span class="title">upload</span><span class="params">(@RequestParam(<span class="string">"yourInformation"</span>)</span> String yourInformation, HttpServletRequest request, @<span class="title">RequestParam</span><span class="params">(<span class="string">"file"</span>)</span> MultipartFile[] files) </span>&#123;</div><div class="line">        <span class="comment">//解析JSON到对象YourObject</span></div><div class="line">        YourObject yourObject= (YourObject) JSONObject.toBean(JSONObject.fromObject(yourInformation),YourObject.class);</div><div class="line">        </div><div class="line">        <span class="comment">//获取文件实际存储路径</span></div><div class="line">        String path = request.getServletContext().getRealPath(<span class="string">"/WEB-INF/InteriorWorkAttachment/"</span>);</div><div class="line">        <span class="keyword">final</span> <span class="keyword">boolean</span>[] flag = &#123;<span class="keyword">true</span>&#125;;</div><div class="line">        Arrays.asList(files).forEach(file -&gt; &#123;</div><div class="line">            String fullname = file.getOriginalFilename();</div><div class="line">            <span class="keyword">if</span> (<span class="comment">//你的上传业务逻辑，返回一个布尔类型的值，成功返回true)) &#123;</span></div><div class="line">                flag[<span class="number">0</span>] = <span class="keyword">false</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;);</div><div class="line">        <span class="keyword">if</span> (flag[<span class="number">0</span>]) &#123;</div><div class="line">            <span class="keyword">return</span> ResponseEntity.ok(<span class="string">"上传成功"</span>);</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            <span class="keyword">return</span> ErrorResponseEntity.buildToResponseEntity(<span class="number">400</span>, <span class="string">"上传失败，文件已经存在！"</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<h1 id="下载参考"><a href="#下载参考" class="headerlink" title="下载参考"></a>下载参考</h1><p>下载时直接获取文件在服务器的路径然后用byte[]进行返回，在前端使用<code>window.open(url)</code>打开即可。不推荐使用<code>window.location.href=</code>。<br>遇到异常，如文件不存在时，后者会导致angular应用整个跳转到错误页面。而前者是新打开一个错误页。<br>下载实现代码参考：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> ResponseEntity <span class="title">getExportStandardIndex</span><span class="params">()</span> <span class="keyword">throws</span> IOException </span>&#123;</div><div class="line">    HttpHeaders headers = <span class="keyword">new</span> HttpHeaders();</div><div class="line">    headers.setContentType(MediaType.APPLICATION_OCTET_STREAM);</div><div class="line">    headers.setContentDispositionFormData(<span class="string">"attachment"</span>, URLEncoder.encode(<span class="string">"你的文件名"</span>, <span class="string">"UTF-8"</span>) + <span class="string">"."</span> + <span class="string">"xlsx"</span>);</div><div class="line">    <span class="keyword">return</span> <span class="keyword">new</span> ResponseEntity&lt;&gt;(standardIndexService.getExportIndexByStandardSn(standardSn), headers, HttpStatus.OK);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+]]></content>
+      
+        <categories>
+            
+            <category> 技术日志 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Angular </tag>
+            
+            <tag> SpringMVC </tag>
+            
+            <tag> 文件上传 </tag>
+            
+            <tag> primeNG </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Angular改造Http实现RESTful认证]]></title>
+      <url>/2017/07/13/Angular%E6%94%B9%E9%80%A0Http%E5%AE%9E%E7%8E%B0RESTful%E8%AE%A4%E8%AF%81/</url>
+      <content type="html"><![CDATA[<p>在上篇<a href="https://cumtfc.github.io/2017/06/11/Angular%E6%8B%A6%E6%88%AA%E5%99%A8%E5%AE%9E%E7%8E%B0REST%E8%AE%A4%E8%AF%81/#more">Angular拦截器实现RESTful认证</a>中，通过替换了<code>Http</code>的提供器来拦截了<code>Http</code>请求，并且重新实现<code>ConnectionBackend</code>抽象类，并用它发起请求来达到了统一对请求进行拦截处理的功能。<br>但是那种实现存在问题:<br><a id="more"></a></p>
+<h1 id="Angular拦截器存在的问题"><a href="#Angular拦截器存在的问题" class="headerlink" title="Angular拦截器存在的问题"></a>Angular拦截器存在的问题</h1><p>但是在实际应用中发现，使用这种方案会导致每次请求都会被发送两次。调试后发现原因如下：</p>
+<ul>
+<li>Angular应用中<code>Http</code>返回的是一个<code>Observable</code>流对象，此对象的实现是<code>RXjs</code>封装的</li>
+<li>而在<code>RXjs</code>中对<code>Observable</code>的处理是冷模式，即被订阅后才发送请求。</li>
+<li>之前的拦截器实现会直接在创建对象时就直接发送请求，被订阅时又再次发送请求<br>这一问题导致了比如发送一条向数据库中插入数据的<code>http</code>请求时，第一条请求插入了数据，第二条请求被返回数据已经存在的错误。客户端接收到数据已经存在的错误，对视图进行错误的更新。</li>
+</ul>
+<h1 id="改造Http实现对请求和结果预处理"><a href="#改造Http实现对请求和结果预处理" class="headerlink" title="改造Http实现对请求和结果预处理"></a>改造Http实现对请求和结果预处理</h1><h2 id="封装新的HttpService"><a href="#封装新的HttpService" class="headerlink" title="封装新的HttpService"></a>封装新的HttpService</h2><p>实现的基本思路是新建一个自己的Service来处理http请求，在此Service中对<code>request</code>和<code>response</code>进行统一的处理后再调用Angular提供的<code>HttpModule</code>来对后端数据接口发起请求。<br>具体实现如下：<br><figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">export</span> <span class="keyword">class</span> MyHttpService&#123;</div><div class="line">  <span class="keyword">constructor</span>(<span class="params"><span class="keyword">private</span> http:Http</span>)&#123;&#125;</div><div class="line">  <span class="keyword">get</span>(url:<span class="built_in">string</span>,reqOpts?:RequestOptionsArgs)&#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.request(url,<span class="built_in">Object</span>.assign(&#123;</div><div class="line">      method:<span class="string">'get'</span></div><div class="line">    &#125;,reqOpts))</div><div class="line">  &#125;</div><div class="line">  post(url:<span class="built_in">string</span>,body: <span class="built_in">any</span>,reqOpts?:RequestOptionsArgs)&#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.request(url,<span class="built_in">Object</span>.assign(&#123;</div><div class="line">      method:<span class="string">'post'</span>,</div><div class="line">    &#125;,reqOpts),body)</div><div class="line">  &#125;</div><div class="line">  put(url:<span class="built_in">string</span>,body: <span class="built_in">any</span>,reqOpts?:RequestOptionsArgs)&#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.request(url,<span class="built_in">Object</span>.assign(&#123;</div><div class="line">      method:<span class="string">'put'</span></div><div class="line">    &#125;,reqOpts),body)</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">delete</span>(url:<span class="built_in">string</span>,reqOpts?:RequestOptionsArgs)&#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.request(url,<span class="built_in">Object</span>.assign(&#123;</div><div class="line">      method:<span class="string">'delete'</span></div><div class="line">    &#125;,reqOpts))</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  request(url:<span class="built_in">string</span>,reqOpts:RequestOptionsArgs,body?:<span class="built_in">any</span>)&#123;</div><div class="line">    <span class="keyword">if</span> (!reqOpts.headers)&#123;</div><div class="line">      reqOpts.headers=<span class="keyword">new</span> Headers;</div><div class="line">      <span class="comment">//统一指定Content-Type</span></div><div class="line">      reqOpts.headers.append(<span class="string">'Content-Type'</span>,<span class="string">'application/json'</span>)</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span> (!reqOpts.headers || reqOpts.headers.get(<span class="string">'name'</span>)==<span class="literal">null</span> &amp;&amp; reqOpts.headers.get(<span class="string">'pass'</span>)==<span class="literal">null</span>)&#123;</div><div class="line">      <span class="comment">//此处加入自己前端缓存的用户名和密码</span></div><div class="line">      &#125;</div><div class="line">    <span class="keyword">if</span> (body)&#123;</div><div class="line">      reqOpts.body=body;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.http.request(url,reqOpts)</div><div class="line"></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="在appModule中提供服务"><a href="#在appModule中提供服务" class="headerlink" title="在appModule中提供服务"></a>在appModule中提供服务</h2><figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">providers: [MyHttpService]</div></pre></td></tr></table></figure>
+<p>然后只需要把原来注入Http的地方替换成<code>MyHttpService</code>就行了，嗯‘只要’……‘就行了’……</p>
+]]></content>
+      
+        <categories>
+            
+            <category> 技术日志 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Angular </tag>
+            
+            <tag> Shiro </tag>
+            
+            <tag> RESTful </tag>
+            
+            <tag> Http </tag>
+            
+            <tag> 拦截器 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[无状态应用中Shiro登录验证的处理]]></title>
+      <url>/2017/06/13/%E6%97%A0%E7%8A%B6%E6%80%81%E5%BA%94%E7%94%A8%E4%B8%ADShiro%E7%99%BB%E5%BD%95%E9%AA%8C%E8%AF%81%E7%9A%84%E5%A4%84%E7%90%86/</url>
+      <content type="html"><![CDATA[<p>在传统JSP web应用中，如果用shiro处理授权的话，通常通过<code>FormAuthenticationFilter</code>来直接截取用户提交的表单，并从中取出<code>username</code>、<code>password</code>、<code>rememberMe</code>三个参数来进行登录验证（截取的参数名可以在配置文件中手动修改）。<br>但是这并不适用于RESTful风格的应用，因为前端的用户验证信息是通过一个http的请求头请求发送过来的，没办法通过<code>FormAuthenticationFilter</code>进行处理，所以我们需要实现自己的filter。<br><a id="more"></a></p>
+<h1 id="无状态Filter的实现"><a href="#无状态Filter的实现" class="headerlink" title="无状态Filter的实现"></a>无状态Filter的实现</h1><p>此处为了正常处理登录验证和授权的功能，我们需要继承类<code>HttpMethodPermissionFilter</code>并实现两个方法<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//访问被拒绝时调用此方法</span></div><div class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">boolean</span> <span class="title">onAccessDenied</span><span class="params">(ServletRequest request,ServletResponse response)</span> </span></div><div class="line"><span class="keyword">throws</span> IOException &#123;&#125;</div><div class="line"><span class="comment">//访问被接受时调用此方法</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isAccessAllowed</span><span class="params">(ServletRequest request,ServletResponse response,Object mappedValue)</span> </span></div><div class="line"><span class="keyword">throws</span> IOException,UnknownAccountException,IncorrectCredentialsException,UnknownError &#123;&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="isAccessAllowed方法实现"><a href="#isAccessAllowed方法实现" class="headerlink" title="isAccessAllowed方法实现"></a>isAccessAllowed方法实现</h2><p>此方法是整个授权认证的入口，负责从请求中获取用户信息并提交给<code>SecurityManager</code>进行授权认证，并在认证成功后将结果添加到<code>request</code>域。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isAccessAllowed</span><span class="params">(ServletRequest request,ServletResponse response, Object mappedValue)</span></span></div><div class="line"><span class="keyword">throws</span> IOException,UnknownAccountException,IncorrectCredentialsException,UnknownError &#123;</div><div class="line">	HttpServletRequest req = (HttpServletRequest) request;</div><div class="line">	String name = req.getHeader(<span class="string">"name"</span>);<span class="comment">//从请求头获取用户名</span></div><div class="line">	String pass = req.getHeader(<span class="string">"pass"</span>);<span class="comment">//从请求头获取凭证</span></div><div class="line">	StatelessToken token = <span class="keyword">new</span> StatelessToken();</div><div class="line">	<span class="comment">// 如果是带验证的，则进行验证，否则没有验证，只能进行一般的请求</span></div><div class="line">	<span class="keyword">if</span> (name != <span class="keyword">null</span> &amp;&amp; pass != <span class="keyword">null</span>) &#123;</div><div class="line">		token.setPrincipal(<span class="keyword">new</span> UserPrincipal(name, UserPrincipal.PrincipType.USER));</div><div class="line">		token.setPassword(pass);</div><div class="line">		<span class="keyword">try</span> &#123;</div><div class="line">			getSubject(request, response).login(token);</div><div class="line">			<span class="comment">// 如果认证成功，则增加request的属性，用于@CurrentUser注解使用</span></div><div class="line">			Employee employee = token.getEmployee();</div><div class="line">			request.setAttribute(Contants.CURRENT_USER, employee);</div><div class="line">		&#125; <span class="keyword">catch</span> (UnknownAccountException e) &#123;</div><div class="line">			logger.info(<span class="string">"用户不存在! "</span>+e.getClass().getSimpleName());</div><div class="line">            request.setAttribute(<span class="string">"shiroLoginFailure"</span>,UnknownAccountException.class.getName());</div><div class="line">		&#125; <span class="keyword">catch</span> (IncorrectCredentialsException e)&#123;</div><div class="line">			logger.info(<span class="string">"用户名/密码错误! "</span>+e.getClass().getSimpleName());</div><div class="line">            request.setAttribute(<span class="string">"shiroLoginFailure"</span>,IncorrectCredentialsException.class.getName());</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">catch</span> (Exception e) &#123;</div><div class="line">			logger.info(<span class="string">"其他认证失败! "</span>+e.getClass().getSimpleName());</div><div class="line">            request.setAttribute(<span class="string">"shiroLoginFailure"</span>,UnknownError.class.getName());</div><div class="line">			e.printStackTrace();</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> <span class="keyword">super</span>.isAccessAllowed(request, response, mappedValue);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>需要注意的是为了在验证没通过时给前端返回对应错误信息，而控制器又没有直接调用认证的方法，所以需要此处捕获到异常并放入<code>request</code>域来方便<code>controller</code>进行处理。在使用<code>FormAuthenticationFilter</code>的案例中前者帮我们处理了这步骤。</p>
+<h1 id="处理登录请求的控制器实现"><a href="#处理登录请求的控制器实现" class="headerlink" title="处理登录请求的控制器实现"></a>处理登录请求的控制器实现</h1><p>这里的<code>ErrorResponseEntity</code>是自行根据需要封装的错误实体类，其中最后是调用了<code>org.springframework.http</code>的<code>ResponseEntity.status().body();</code>来对<code>Response</code>的信息进行了封装。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@RequestMapping</span>(<span class="string">"login"</span>)</div><div class="line"><span class="function"><span class="keyword">public</span> ResponseEntity <span class="title">login</span><span class="params">(HttpServletRequest request, @CurrentUser User user)</span></span>&#123;</div><div class="line">   <span class="comment">//如果登陆失败从request中获取认证异常信息，shiroLoginFailure就是shiro异常类的全限定名</span></div><div class="line">   String exceptionClassName = (String) request.getAttribute(<span class="string">"shiroLoginFailure"</span>);</div><div class="line">   <span class="comment">//根据shiro返回的异常类路径判断，抛出指定异常信息</span></div><div class="line">   <span class="keyword">if</span>(exceptionClassName!=<span class="keyword">null</span>)&#123;</div><div class="line">       <span class="keyword">if</span> (UnknownAccountException.class.getName().equals(exceptionClassName)) &#123;</div><div class="line">           <span class="keyword">return</span> ErrorResponseEntity.buildToResponseEntity(<span class="number">401</span>, <span class="string">"用户不存在"</span>,HttpStatus.UNAUTHORIZED);</div><div class="line">       &#125; <span class="keyword">else</span> <span class="keyword">if</span> (IncorrectCredentialsException.class.getName().equals(</div><div class="line">               exceptionClassName)) &#123;</div><div class="line">           <span class="keyword">return</span> ErrorResponseEntity.buildToResponseEntity(<span class="number">401</span>, <span class="string">"用户名/密码错误"</span>,HttpStatus.UNAUTHORIZED);</div><div class="line">       &#125;<span class="keyword">else</span> &#123;</div><div class="line">          <span class="keyword">return</span> ErrorResponseEntity.buildToResponseEntity(<span class="number">401</span>, <span class="string">"其他错误"</span>,HttpStatus.UNAUTHORIZED);</div><div class="line">       &#125;</div><div class="line">   &#125;</div><div class="line">   <span class="comment">//如果登录成功，则调用服务返回用户可访问的菜单项.</span></div><div class="line">   <span class="keyword">return</span> ResponseEntity.ok(resourceService.getMenuByUserId(employee.getUserId()));</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>本文实现方法修改参考自<a href="https://github.com/ichenkaihua/ssm-easy-template" target="_blank" rel="noopener">ichenkaihua</a></p>
+<p>具体用户身份和认证令牌的封装请参考以上项目</p>
+]]></content>
+      
+        <categories>
+            
+            <category> 技术日志 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Shiro </tag>
+            
+            <tag> RESTful </tag>
+            
+            <tag> 无状态应用 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Angular拦截器实现REST认证]]></title>
+      <url>/2017/06/11/Angular%E6%8B%A6%E6%88%AA%E5%99%A8%E5%AE%9E%E7%8E%B0REST%E8%AE%A4%E8%AF%81/</url>
+      <content type="html"><![CDATA[<p>在RESTful风格的系统中，由于后端没有session等持续性状态信息，所以每次前端的请求都必须携带认证信息。<br>那我们就需要一个全局的统一处理，来为请求加上认证所需的信息。<br>以下是我的实现方法：<br><a id="more"></a><br>在Angular中可选的方法有两种：</p>
+<ul>
+<li>自己实现一个Http拦截器</li>
+<li>在官方Http模块的基础上封装自己的Http服务</li>
+</ul>
+<h1 id="自己实现一个Http拦截器"><a href="#自己实现一个Http拦截器" class="headerlink" title="自己实现一个Http拦截器"></a>自己实现一个Http拦截器</h1><h2 id="定义自己的拦截器"><a href="#定义自己的拦截器" class="headerlink" title="定义自己的拦截器"></a>定义自己的拦截器</h2><figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//http-interceptor.ts</span></div><div class="line"><span class="meta">@Injectable</span>()</div><div class="line"><span class="keyword">export</span> <span class="keyword">class</span> HttpInterceptor &#123;</div><div class="line">    beforeRequest(request:Request):Request&#123;</div><div class="line">        <span class="built_in">console</span>.log(request);</div><div class="line">        <span class="keyword">return</span> request;</div><div class="line">    &#125;</div><div class="line">    afterResponse(res:Observable&lt;Response&gt;):Observable&lt;<span class="built_in">any</span>&gt;&#123;</div><div class="line">        res.subscribe(<span class="function">(<span class="params">data</span>)=&gt;</span> &#123;</div><div class="line">            <span class="built_in">console</span>.log(date);</div><div class="line">        &#125;);</div><div class="line">        <span class="keyword">return</span> res;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这里提供两个方法，分别对请求和响应进行处理。<br>for example：添加统一的请求头、对结果进行预处理和错误进行全局统一处理</p>
+<h2 id="实现ConnectionBackend抽象类"><a href="#实现ConnectionBackend抽象类" class="headerlink" title="实现ConnectionBackend抽象类"></a>实现ConnectionBackend抽象类</h2><p>Angular的HTTP服务默认调用XHRBackend作为第一个参数构建的<br>所以我们需要自己重新封装XHRBackend服务，在其中对HttpInterceptor的方法进行调用<br><figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//http-interceptor-backend.ts</span></div><div class="line"></div><div class="line"><span class="meta">@Injectable</span>()</div><div class="line"><span class="keyword">export</span> <span class="keyword">class</span> HttpInterceptorBackend <span class="keyword">implements</span> ConnectionBackend&#123;</div><div class="line">    <span class="comment">//注入XHRBackend，和我们定义的HttpInterceptor</span></div><div class="line">    <span class="keyword">constructor</span>(<span class="params"><span class="keyword">private</span> _httpInterceptor:HttpInterceptor,<span class="keyword">private</span> _xhrBackend:XHRBackend</span>) &#123; &#125;</div><div class="line">    createConnection(request:Request):XHRConnection&#123;</div><div class="line">        <span class="keyword">let</span> interceptor =<span class="keyword">this</span>._httpInterceptor;</div><div class="line">        <span class="comment">//请求发出前拦截请求并调用interceptor进行处理</span></div><div class="line">        <span class="keyword">let</span> req=interceptor.beforeRequest ? interceptor.beforeRequest(request):request;</div><div class="line">        <span class="comment">//通过XHRBackend对象新建XHRConnection实例</span></div><div class="line">        <span class="keyword">let</span> result=<span class="keyword">this</span>._xhrBackend.createConnection(req);</div><div class="line">        <span class="comment">//拦截响应并调用interceptor进行处理</span></div><div class="line">        result.response=interceptor.afterResponse ? interceptor.afterResponse(result.response):result.response;</div><div class="line">        <span class="keyword">return</span> result;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="封装Http工厂"><a href="#封装Http工厂" class="headerlink" title="封装Http工厂"></a>封装Http工厂</h2><p>这里就体现出依赖注入的好处了，在不改变原有代码的基础上就能替换掉Http提供类，避免了大面积重构。<br><figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//http-factory.ts</span></div><div class="line"></div><div class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">HttpFactory</span>(<span class="params">httpInterceptorBackend:HttpInterceptorBackend,requestOptions:RequestOptions</span>):<span class="title">Http</span></span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'Http拦截器生效'</span>);</div><div class="line">    <span class="keyword">return</span> <span class="keyword">new</span> Http(httpInterceptorBackend,requestOptions);</div><div class="line">    &#125;</div></pre></td></tr></table></figure></p>
+<p>在appModule中声明提供器即可<br><figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">providers: [</div><div class="line">    HttpInterceptor,</div><div class="line">    HttpInterceptorBackend,</div><div class="line">    &#123;provide:Http,</div><div class="line">    useFactory:HttpFactory,</div><div class="line">    deps:[HttpInterceptorBackend,RequestOptions]&#125;</div><div class="line">]</div></pre></td></tr></table></figure></p>
+<h2 id="http拦截器配置完成"><a href="#http拦截器配置完成" class="headerlink" title="http拦截器配置完成"></a>http拦截器配置完成</h2><p>接下来就只需要通过拦截器向请求头添加认证信息就好了<br>我自己的后端使用的是shiro进行授权认证，前端的实现思路很简单</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">用户提交登录信息－&gt;服务器验证通过－&gt;将认证信息写入到AuthorizationService－&gt;</div><div class="line">每次请求时拦截器调用AuthorizationService获取并添加认证信息</div></pre></td></tr></table></figure>
+<p>通过配置路由守卫实现AuthorizationService中认证信息为空时路由到401页面，服务器返回401时通过拦截器路由到401页面</p>
+<hr>
+<h1 id="封装自己的Http服务"><a href="#封装自己的Http服务" class="headerlink" title="封装自己的Http服务"></a>封装自己的Http服务</h1><p><em>在http模块的Request方法基础上进行封装</em><br>此方法优点在于可以单独对get,put,post,delete等请求单独定义预处理方法<br>缺点在于使用不方便，可能需要大量重构，因为自己封装的HttpService依赖于官方的Http模块，<br>而如果以Http作为提供器的名称的话无法正常引用官方的模块<br>具体实现就不写了<br>有好的方法解决使用不便的问题的话欢迎指教～</p>
+]]></content>
+      
+        <categories>
+            
+            <category> 技术日志 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Angular </tag>
+            
+            <tag> Shiro </tag>
+            
+            <tag> RESTful </tag>
+            
+            <tag> Http </tag>
+            
+            <tag> 拦截器 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[My New Post]]></title>
+      <url>/2017/06/09/My-New-Post/</url>
+      <content type="html"><![CDATA[<h1 id="一级标题"><a href="#一级标题" class="headerlink" title="一级标题"></a>一级标题</h1><h2 id="二级标题"><a href="#二级标题" class="headerlink" title="二级标题"></a>二级标题</h2><h3 id="三级标题"><a href="#三级标题" class="headerlink" title="三级标题"></a>三级标题</h3><h4 id="四级标题"><a href="#四级标题" class="headerlink" title="四级标题"></a>四级标题</h4><h5 id="五级标题"><a href="#五级标题" class="headerlink" title="五级标题"></a>五级标题</h5><h6 id="六级标题"><a href="#六级标题" class="headerlink" title="六级标题"></a>六级标题</h6><p>####### 七级标题<br>markdown只支持6级标题，再多为无效。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ this is a <span class="built_in">test</span></div><div class="line">$ Hello World!</div></pre></td></tr></table></figure></p>
+<p>Sraech with Google: <a href="https://google.com/ncr" target="_blank" rel="noopener">Google</a></p>
+]]></content>
+      
+        <categories>
+            
+            <category> Demo </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Demo </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Hello World]]></title>
+      <url>/2017/06/09/hello-world/</url>
+      <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+]]></content>
+      
+        <categories>
+            
+            <category> Demo </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Guide </tag>
+            
+        </tags>
+        
+    </entry>
+    
+  
+  
+</search>
