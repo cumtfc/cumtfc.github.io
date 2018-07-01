@@ -3,6 +3,43 @@
   
     
     <entry>
+      <title><![CDATA[IDEA中启动SpringBoot多端口实例]]></title>
+      <url>/2018/07/01/IDEA%E4%B8%AD%E5%90%AF%E5%8A%A8SpringBoot%E5%A4%9A%E7%AB%AF%E5%8F%A3%E5%AE%9E%E4%BE%8B/</url>
+      <content type="html"><![CDATA[<h1 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h1><ol>
+<li>在<code>run/debug configurations</code>中找到对应的配置，并取消勾选右上角的单实例限制</li>
+<li>修改<code>application.yml/application.properties</code>中的端口</li>
+<li>再运行一次</li>
+</ol>
+<p>这个方法是网上随便搜一下就给出一堆的解决方法，但是这个方法还是太麻烦了，每次要改配置文件。</p>
+<h1 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h1><p>SpringBoot是支持在启动参数中修改配置的，且此参数会覆盖<code>application.yml/application.properties</code>中的配置。<br>所以</p>
+<ol>
+<li>在<code>run/debug configurations</code>中建立多个启动配置项</li>
+<li>点开<code>environment</code>选项卡</li>
+<li>在program arguments一项中加上<code>--server.port=不重复的端口</code></li>
+</ol>
+<p>然后借助IDEA的run dashboard直接运行父模块就能一键启动起多个子模块实例了。<br>如果没父模块，直接启动对应的项也比改配置文件快。</p>
+]]></content>
+      
+        <categories>
+            
+            <category> 技术笔记 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> IDEA </tag>
+            
+            <tag> SpringBoot </tag>
+            
+            <tag> SpringCloud </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[京东+携程Java开发岗面经]]></title>
       <url>/2018/05/18/%E4%BA%AC%E4%B8%9C-%E6%90%BA%E7%A8%8BJava%E5%BC%80%E5%8F%91%E5%B2%97%E4%BD%8D%E9%9D%A2%E7%BB%8F/</url>
       <content type="html"><![CDATA[<h2 id="京东-携程Java开发岗位面经"><a href="#京东-携程Java开发岗位面经" class="headerlink" title="京东+携程Java开发岗位面经"></a>京东+携程Java开发岗位面经</h2><p>京东和携程一样都是总共三轮面试，两轮技术面，一轮HR面。<br><a id="more"></a><br>也有段时间了，可能记得不是太清楚，写下能想起来的吧，希望对大家有帮助。</p>
@@ -129,9 +166,9 @@
         
         <tags>
             
-            <tag> JVM </tag>
-            
             <tag> Java </tag>
+            
+            <tag> JVM </tag>
             
             <tag> 多线程 </tag>
             
